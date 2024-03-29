@@ -9,7 +9,9 @@
 
 
 *Need Scripts*
-qb-lock
-qb-target
+
+- qb-lock
+
+- qb-target
 
 
