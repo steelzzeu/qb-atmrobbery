@@ -6,10 +6,10 @@
 	['atmobject'] 				 	 = {['name'] = 'atmobject', 			  		['label'] = 'ATM', 						['weight'] = 200, 		['type'] = 'item', 		['image'] = 'expert_atmobj.png', 		['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'ATM'},
 
 
-======================================================================================================
+
 
 *Need Scripts*
 qb-lock
 qb-target
 
-======================================================================================================
+
