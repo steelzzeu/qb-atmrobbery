@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'amir_expert#1911 - ATM Robbery'
+description 'QB-ATM Robbery'
 
 version '1.0.3'
 
