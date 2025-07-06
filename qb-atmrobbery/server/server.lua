@@ -27,7 +27,7 @@ end)
 RegisterNetEvent('qb-atmrobbery:AddSearchATMReward', function(Amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddMoney('cash', tonumber(Amount), "ATM")
+    Player.Functions.AddMoney('blackmoney', tonumber(Amount), "ATM Robbery - Cash Found")
 end)
 
 RegisterNetEvent('inventory:server:SaveInventory', function()
@@ -45,5 +45,5 @@ end)
 RegisterNetEvent('qb-atmrobbery:server:AddRewardForATMObj', function(Amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    Player.Functions.AddMoney('cash', tonumber(Amount), "ATM")
+    Player.Functions.AddMoney('blackmoney', tonumber(Amount), "ATM Robbery - Sold ATM")
 end)

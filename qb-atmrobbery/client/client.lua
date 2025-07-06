@@ -160,6 +160,37 @@ RegisterNetEvent('qb-atmrobbery:client:UseTowingRope', function()
 									if result then
 										StopAnimTask(ped, "anim@amb@clubhouse@tutorial@bkr_tut_ig3@", "machinic_loop_mechandplayer", 1.0)
 										local ATMCoord = GetEntityCoords(ATMobject, false)
+										
+										-- Updated Dispatch Alert - steelzz
+										if Config.PoliceAlert then
+											local playerData = exports.tk_dispatch:getPlayerData()
+											exports.tk_dispatch:addCall({
+												title = 'ATM Robbery in Progress',
+												code = '999',
+												priority = '999 High Priority',
+												message = 'Suspicious activity reported at ATM location. ' .. playerData.gender .. ' seen tampering with ATM using a vehicle at ' .. playerData.location .. '. Vehicle: ' .. (playerData.vehicle and playerData.vehicle.model .. ' (' .. playerData.vehicle.plate .. ')' or 'On foot'),
+												coords = ATMCoord,
+												showLocation = true,
+												showDirection = true,
+												showGender = true,
+												showVehicle = true,
+												platePercentage = 75,
+												coordsOffset = 15,
+												removeTime = 1000 * 60 * 10, -- 10 mins Kyle adjust if needed
+												showTime = 15000, -- 15 sec notif
+												playSound = true,
+												flash = true,
+												blip = {
+													sprite = 156, -- ATM icon Kyle adjust if needed
+													scale = 1.2,
+													color = 1, -- Red Kyle adjust if needed
+													flash = true,
+													radius = 50.0,
+												},
+												jobs = {'police'}
+											})
+										end
+										
 										TriggerServerEvent('qb-atmrobbery:createRopeForAll', VehCoord, ATMCoord)
 										local Player = QBCore.Functions.GetPlayerData()
 										local bsn = Player.citizenid
@@ -172,10 +203,6 @@ RegisterNetEvent('qb-atmrobbery:client:UseTowingRope', function()
 										StartWhile = true
 										SearchATM = false
 										PickUpATM = false
-										if Config.PoliceAlert then
-											local pos = GetEntityCoords(ped)
-											TriggerEvent('police:client:policeAlert', pos, "ATM Robbery")
-										end
 										if Config.RemoveItemToUsed then
 											TriggerServerEvent("QBCore:Server:RemoveItem", Config.ItemName, 1)
 											TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items[Config.ItemName], "remove")

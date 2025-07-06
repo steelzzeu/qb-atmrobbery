@@ -38,19 +38,19 @@ Config.PowerCar = {
     12, -- Vans 
 }
 
-Config.AttachCarTimer = 5000
-Config.AttachATMTimer = 10000
-Config.SearchATMTimer = 15000
-Config.PickUpATMTimer = 15000
+Config.AttachCarTimer = 15000
+Config.AttachATMTimer = 20000
+Config.SearchATMTimer = 30000
+Config.PickUpATMTimer = 45000
 
 Config.SearchRewardCash = {
-    ["min"] = 8000,
-    ["max"] = 12000
+    ["min"] = 20000,
+    ["max"] = 25000
 }
 
 Config.ATMRewardCash = {
-    ["min"] = 5000,
-    ["max"] = 10000
+    ["min"] = 15000,
+    ["max"] = 20000
 }
 
 Config.ATMSell = vector3(-2220.63, -366.96, 13.32)
